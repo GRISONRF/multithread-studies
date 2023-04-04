@@ -7,13 +7,33 @@
 public class VotingRunnable implements Runnable {
 
     private Design d;
+    //boolean flag to handle the stopping of the task
+    protected boolean doStop = false;
     public VotingRunnable(Design d) {
         this.d = d;
     }
 
     @Override
     public void run() {
-        System.out.println("Voting going on for design " + d.getName());
-        d.getVotes().add(1L);
+        while(!doStop) {
+            System.out.println("Voting going on for design " + d.getName());
+            d.getVotes().add(1L);
+
+            //generate a random number between 0 - 1000
+            Double sleepFor = Math.random() * 1000;
+
+            //pause the thread for this random amount of time
+            try {
+                Thread.sleep(sleepFor.longValue());
+            } catch(InterruptedException e){
+                e.printStackTrace();
+            }
+
+
+        }
+
+
+
+
     }
 }

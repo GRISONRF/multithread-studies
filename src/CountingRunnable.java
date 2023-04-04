@@ -8,12 +8,25 @@
 public class CountingRunnable implements Runnable {
 
     private Design d;
+    //boolean flag to handle the stopping of the task
+    protected boolean doStop = false;
     public CountingRunnable(Design d) {
         this.d = d;
     }
 
     @Override
     public void run() {
-        System.out.println("Design " + d.getName() + " has " + d.getVotes().size() + " votes.");
+
+        while (!doStop){
+            System.out.println("Design " + d.getName() + " has " + d.getVotes().size() + " votes.");
+
+            //pause the thread for 2 secods
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e){
+                e.printStackTrace();
+            }
+
+        }
     }
 }
