@@ -27,7 +27,7 @@ public class Main {
 
 
         /*Start of the code for the cake design competition
-        * ----------------------------------------------------------
+        * ------------------------------------------------------------------------
         * For all three designs, need to create and start two threads each for voting and for counting.
         * To do that, first instantiate the voting runnable and counting runnable, then create two threads, one for voting and one for counting, passing in the correct runnable instance. And finally, start the threads.
          * */
@@ -71,7 +71,7 @@ public class Main {
 
         //pause the main thread for 30 seconds
         try{
-            Thread.sleep(3000);
+            Thread.sleep(30000);
         } catch (InterruptedException e){
             e.printStackTrace();
         }
